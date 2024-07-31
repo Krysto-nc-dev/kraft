@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
 import { DM_Sans, Inter } from 'next/font/google'
 import './globals.css'
-import { ClerkProvider } from '@clerk/nextjs'
-import { dark } from '@clerk/themes'
+
 import { ThemeProvider } from '@/providers/theme-provider'
 
 const font = DM_Sans({ subsets: ['latin'] })
@@ -18,12 +17,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
+      
     <html lang="fr" suppressHydrationWarning>
       <head>
         {/* Ajoutez ici d'autres balises <head> si nécessaire */}
       </head>
       <body className={font.className}>
-        <ClerkProvider appearance={{ baseTheme: dark }}>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -32,8 +31,8 @@ export default function RootLayout({
           >
             {children}
           </ThemeProvider>
-        </ClerkProvider>
       </body>
     </html>
+     
   )
 }
